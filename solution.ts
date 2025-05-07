@@ -112,3 +112,41 @@ function getMostExpensiveProduct(products: Product[]): Product | null {
 //     { name: "Bag", price: 50 }
 //   ];
 //   console.log(getMostExpensiveProduct(products));
+
+
+
+enum Day {
+    Monday,
+    Tuesday,
+    Wednesday,
+    Thursday,
+    Friday,
+    Saturday,
+    Sunday
+  }
+  
+function getDayType(day: Day): string {
+    if(day === Day.Saturday || day === Day.Sunday){
+        return "Weekend";
+    }
+    return "Weekday";
+}
+
+//   console.log(getDayType(Day.Monday));
+//   console.log(getDayType(Day.Sunday));
+
+
+async function squareAsync(n: number): Promise<number> {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (n < 0) {
+                reject("Error: Negative number not allowed");
+            } else {
+                resolve(n * n);
+            }
+        }, 1000);
+    })
+}
+
+// squareAsync(4).then(console.log); 
+// squareAsync(-3).catch(console.error);
