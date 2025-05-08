@@ -14,13 +14,13 @@
 - [7. Provide an example of using union and intersection types in TypeScript.](#7-provide-an-example-of-using-union-and-intersection-types-in-typescript)
 
 
-
+<br>
 
 ## 1. What are some differences between `interfaces` and `types` in TypeScript?
 
 both `interface` and `type` can be used to describe the shape of an object, but there are some key differences between them. Here's a breakdown:
 
-### ✅ 1. Extension / Inheritance
+### ✅ A. Extension / Inheritance
 
 **Interface:** Supports extension via `extends`, including multiple interfaces.
 
@@ -35,8 +35,7 @@ interface B extends A { y: number }
 type A = { x: number };
 type B = A & { y: number };
 ```
-
-### ✅ 2. Declaration Merging
+### ✅ B. Declaration Merging
 
 **Interface**: Can be `merged` if defined multiple times.
 
@@ -49,8 +48,7 @@ const u: User = { name: "John", age: 30 };
 
 **Type:** Cannot be re-declared. Will cause an error.
 
-
-### ✅ 3. Use Cases Beyond Objects
+### ✅ C. Use Cases Beyond Objects
 
 **Type:** More flexible. Can represent primitive types, unions, tuples, etc.
 
@@ -61,7 +59,7 @@ type Pair = [string, number];
 
 **Interface:** Only used for describing object shapes or class contracts.
 
-### ✅ 4. Implements with Classes
+### ✅ D. Implements with Classes
 
 **Interface:** Commonly used with implements in classes.
 
@@ -79,7 +77,7 @@ class Report implements Printable {
 
 **Type:** Not typically used with implements, though possible with object types.
 
-### ✅ 5. Readability & Community Convention
+### ✅ E. Readability & Community Convention
 
 - Use `interface` for **object structures** (especially public APIs and OOP).
 - Use `type` for **complex compositions**, unions, tuples, and primitives.
@@ -419,4 +417,4 @@ const person: Person = {
 | Type             | Symbol | Meaning                                 | Example             |                    |
 | ---------------- | ------ | --------------------------------------- | ------------------- | ------------------ |
 | **Union Type**   | `\|`     | Choose one among all types                                      | One type OR another | `string \| number` |
-| **Intersection** | `&`    | Combine multiple types (ALL must match) | `Name & Age`        |                    |
+| **Intersection** | `&`    | Combine multiple types (ALL must match) | One type AND another (`Name & Age`)       |       `string & number`             |
