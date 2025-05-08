@@ -130,3 +130,60 @@ const isStudent = getProperty(person, "isStudent"); // Type: boolean
 - `keyof` is a **type operator** that extracts the **keys** of a type as a union.
 - Helps in **creating generic, type-safe functions.**
 - Often used with `T[K]` **index access.**
+
+<br>
+
+## 3. Explain the difference between `any`, `unknown`, and `never` types in TypeScript.
+
+
+| Type      | Description                                                                      | Use Case                                                     | Safety Level     |
+| --------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------ | ---------------- |
+| `any`     | Disables type checking for a variable. You can assign or access anything.        | When you don’t care about the type or migrating JS code.     | ❌ Least safe     |
+| `unknown` | Accepts any value like `any`, but requires type-checks before use.               | When accepting unknown input safely (e.g., APIs, user input) | ✅ Safer than any |
+| `never`   | Represents values that never occur (e.g., functions that throw or loop forever). | For functions that never return or unreachable code.         | ✅ Fully safe     |
+
+
+### ✅ `any` Example:
+
+```ts
+let value: any = "Hello";
+value = 42;        // OK
+value.toUpperCase(); // OK (no error even if value is not a string)
+```
+
+⚠️ **No type safety** — you can call any method even if it doesn’t exist.
+
+
+### ✅ `unknown` Example:
+
+```ts
+let value: unknown = "Hello";
+value = 42;        // OK
+// value.toUpperCase(); // ❌ Error: Object is of type 'unknown'
+
+if (typeof value === "string") {
+  console.log(value.toUpperCase()); // ✅ Safe to use
+}
+```
+🔒 **Type-safe:** you must narrow the type before usage.
+
+### ✅ `never` Example:
+
+```ts
+function throwError(message: string): never {
+  throw new Error(message);
+}
+
+function infiniteLoop(): never {
+  while (true) {}
+}
+```
+🧠 Used to represent **unreachable code** or **non-returning functions**.
+
+### Summary : 
+
+- Use `any` if you **don’t want type checking**.
+
+- Use `unknown` if you want to **accept any value but ensure safety** before using it.
+
+- Use `never` when a function **does not return at all** (e.g., throws or loops infinitely).
