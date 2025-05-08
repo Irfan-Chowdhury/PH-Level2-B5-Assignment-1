@@ -23,7 +23,7 @@ type A = { x: number };
 type B = A & { y: number };
 ```
 
-## ✅ 2. Declaration Merging
+### ✅ 2. Declaration Merging
 
 **Interface**: Can be `merged` if defined multiple times.
 
@@ -37,7 +37,7 @@ const u: User = { name: "John", age: 30 };
 **Type:** Cannot be re-declared. Will cause an error.
 
 
-## ✅ 3. Use Cases Beyond Objects
+### ✅ 3. Use Cases Beyond Objects
 
 **Type:** More flexible. Can represent primitive types, unions, tuples, etc.
 
@@ -48,7 +48,7 @@ type Pair = [string, number];
 
 **Interface:** Only used for describing object shapes or class contracts.
 
-## ✅ 4. Implements with Classes
+### ✅ 4. Implements with Classes
 
 **Interface:** Commonly used with implements in classes.
 
